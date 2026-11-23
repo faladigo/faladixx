@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>faladixx — ouça em qualquer lugar</title>
+<meta name="description" content="faladixx (antes faladigo): trap cristão, Harpa e JC Funk. Todos os álbuns em todas as plataformas.">
+<meta property="og:title" content="faladixx">
+<meta property="og:description" content="Trap cristão, Harpa e JC Funk. Ouça em qualquer plataforma.">
+<style>
+  :root { --bg:#0e0d0b; --card:#1a1815; --line:#2c2924; --ink:#f4efe6; --mute:#a39b8d; --gold:#f2b53a; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  main { max-width:560px; margin:0 auto; padding:28px 18px 48px; }
+  header { text-align:center; margin-bottom:22px; }
+  h1 { font-size:40px; letter-spacing:-1px; margin:0; font-weight:800; }
+  .was { color:var(--mute); font-size:14px; margin-top:2px; }
+  .tag { color:var(--ink); margin:10px 0 0; }
+  .profiles { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:18px 0 6px; }
+  .pill { border:1px solid var(--line); border-radius:999px; padding:7px 13px; color:var(--ink); text-decoration:none; font-size:14px; }
+  .pill:hover, .pill:focus { border-color:var(--gold); }
+  h2 { font-size:13px; text-transform:uppercase; letter-spacing:1.5px; color:var(--mute); margin:28px 0 10px; }
+  .album { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; margin-bottom:12px; }
+  .album.now { border-color:var(--gold); }
+  .head { display:flex; gap:14px; align-items:center; }
+  .head img { width:84px; height:84px; border-radius:8px; object-fit:cover; flex:none; background:#000; }
+  .title { font-weight:700; font-size:19px; margin:0; }
+  .meta { color:var(--mute); font-size:13px; }
+  .badge { display:inline-block; background:var(--gold); color:#1a1300; font-size:11px; font-weight:800; letter-spacing:.8px; text-transform:uppercase; border-radius:4px; padding:2px 6px; margin-bottom:4px; }
+  .links { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; margin-top:12px; }
+  .links a { display:block; text-align:center; padding:11px 8px; border-radius:9px; background:#25221d; color:var(--ink); text-decoration:none; font-weight:600; font-size:15px; }
+  .links a:hover, .links a:focus { background:#332e26; outline:2px solid var(--gold); outline-offset:-2px; }
+  footer { margin-top:30px; text-align:center; color:var(--mute); font-size:14px; }
+  footer a { color:var(--ink); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>faladixx</h1>
+    <div class="was">antes faladigo</div>
+    <p class="tag">isso aqui é música pra crente feliz<br>trap cristão · harpa · jc funk</p>
+    <nav class="profiles" id="profiles" aria-label="Perfis"></nav>
+  </header>
+  <section id="albums" aria-label="Álbuns"></section>
+  <footer>
+    faladixx é o projeto musical do Digo.<br>
+    <a href="https://www.instagram.com/faladigo/">@faladigo</a> — publicidade, direito e música ·
+    <a href="https://www.instagram.com/galeriafaladigo/">@galeriafaladigo</a> — fotografia
+  </footer>
+</main>
+<script>
+/* ===== Dados — editar aqui ===== */
+// Álbum em foco no mês (temporada). Troque o nome para mudar o destaque.
+const TEMPORADA_ATUAL = 'ABBA';
+
+const PERFIS = [
+  ['Instagram', 'https://www.instagram.com/faladixx/'],
+  ['YouTube', 'https://www.youtube.com/@faladigo'],
+  ['Spotify', 'https://open.spotify.com/artist/4X9J4mNNUMAWQHOmFOtHEL'],
+  ['Apple Music', 'https://music.apple.com/br/artist/faladigo/1842517110'],
+  ['YouTube Music', 'https://music.youtube.com/channel/UC8k41D4O3iwCzFwTu0M6r1g'],
+  ['Deezer', 'https://www.deezer.com/artist/348124481'],
+];
+
+const ALBUNS = [
+  { nome: 'ABBA', ano: 2026, faixas: 8, estilo: 'Louvor',
+    capa: 'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024acdf2a961197c00345989db',
+    links: { Spotify: 'https://open.spotify.com/album/6DtWEb8T6AtXgW6rQrv7F8',
+             'Apple Music': 'https://music.apple.com/br/album/abba/6796826306',
+             Deezer: 'https://www.deezer.com/album/1043117262' } },
+  { nome: 'Classics JC Funk II', ano: 2025, faixas: 12, estilo: 'JC Funk',
+    capa: 'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e0274337260e2cab1d25884d1fc',
+    links: { Spotify: 'https://open.spotify.com/album/7I45awMC5k6CocJ0F8CPXq',
+             'Apple Music': 'https://music.apple.com/br/album/classics-jc-funk-ii/1847942595',
+             Deezer: 'https://www.deezer.com/album/840729652' } },
+  { nome: 'Classics II', ano: 2025, faixas: 19, estilo: 'Harpa em trap',
+    capa: 'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02df3464fd4997d3fa84344659',
+    links: { Spotify: 'https://open.spotify.com/album/2Xu4Cl1HUkAXMkmHC4D6Ku',
+             'YouTube Music': 'https://music.youtube.com/playlist?list=OLAK5uy_l2L-z63rGcRBRQzmFgE1FHs2U7xP7e5Os',
+             'Apple Music': 'https://music.apple.com/br/album/classics-ii/1846576230',
+             Deezer: 'https://www.deezer.com/album/837377192',
+             'Vídeos': 'https://www.youtube.com/playlist?list=PL2grQe4FybApjuap3EO5uuaZQcJ1u1qUE' } },
+  { nome: 'Classics JC Funk', ano: 2025, faixas: 10, estilo: 'JC Funk',
+    capa: 'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02435ee329d27e1da48961d05b',
+    links: { Spotify: 'https://open.spotify.com/album/5J4e3flE3qM3UaucobSM0V',
+             'YouTube Music': 'https://music.youtube.com/playlist?list=OLAK5uy_nWwmglPEV-r5_zX3MjTmsu1Zly_XntVUQ',
+             'Apple Music': 'https://music.apple.com/br/album/classics-jc-funk/1843176481',
+             Deezer: 'https://www.deezer.com/album/829092741',
+             'Vídeos': 'https://www.youtube.com/playlist?list=PL2grQe4FybAoNDklrb2PqRmBsBOHmsipP' } },
+  { nome: 'Santo Flow', ano: 2025, faixas: 9, estilo: 'Trap cristão',
+    capa: 'https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02c511eae241d5f961b176f7e9',
+    links: { Spotify: 'https://open.spotify.com/album/4bmaYjKFQp35iImyBvrE1Q',
+             'Apple Music': 'https://music.apple.com/br/album/santo-flow/1842764460',
+             Deezer: 'https://www.deezer.com/album/828508121',
+             'Vídeos': 'https://www.youtube.com/playlist?list=PL2grQe4FybApICXH8JVDVdp33HFjZ3-pj' } },
+];
+/* ===== fim dos dados ===== */
+
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const link = (label, url) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`;
+
+document.getElementById('profiles').innerHTML =
+  PERFIS.map(([n, u]) => `<a class="pill" href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join('');
+
+const albumHtml = (a) => `
+  <article class="album ${a.nome === TEMPORADA_ATUAL ? 'now' : ''}">
+    <div class="head">
+      <img src="${esc(a.capa)}" alt="Capa do álbum ${esc(a.nome)}" loading="lazy">
+      <div>
+        ${a.nome === TEMPORADA_ATUAL ? '<span class="badge">Temporada do mês</span>' : ''}
+        <p class="title">${esc(a.nome)}</p>
+        <div class="meta">${esc(a.estilo)} · ${a.faixas} faixas · ${a.ano}</div>
+      </div>
+    </div>
+    <div class="links">${Object.entries(a.links).map(([n, u]) => link(n, u)).join('')}</div>
+  </article>`;
+
+const atual = ALBUNS.filter((a) => a.nome === TEMPORADA_ATUAL);
+const resto = ALBUNS.filter((a) => a.nome !== TEMPORADA_ATUAL);
+document.getElementById('albums').innerHTML =
+  (atual.length ? '<h2>Agora</h2>' + atual.map(albumHtml).join('') : '') +
+  '<h2>Discografia</h2>' + resto.map(albumHtml).join('');
+</script>
+</body>
+</html>
