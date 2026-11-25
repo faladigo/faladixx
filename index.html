@@ -7,6 +7,11 @@
 <meta name="description" content="faladixx (antes faladigo): trap cristão, Harpa e JC Funk. Todos os álbuns em todas as plataformas.">
 <meta property="og:title" content="faladixx">
 <meta property="og:description" content="Trap cristão, Harpa e JC Funk. Ouça em qualquer plataforma.">
+<link rel="canonical" href="https://faladigo.github.io/faladixx/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://faladigo.github.io/faladixx/">
+<meta property="og:image" content="https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e024acdf2a961197c00345989db">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicGroup", "name": "faladixx", "alternateName": "faladigo", "url": "https://faladigo.github.io/faladixx/", "genre": ["Trap cristão", "Funk cristão", "Rap cristão", "Gospel"], "sameAs": ["https://www.instagram.com/faladixx/", "https://www.youtube.com/@faladixx", "https://open.spotify.com/artist/4X9J4mNNUMAWQHOmFOtHEL", "https://open.spotify.com/artist/4EcnkBM3euAsEjFn7wLmuE", "https://music.apple.com/br/artist/faladigo/1842517110", "https://music.youtube.com/channel/UCAssG-aI0ubTVyckxVqt-DQ", "https://www.deezer.com/artist/429978321"]}</script>
 <style>
   :root { --bg:#0e0d0b; --card:#1a1815; --line:#2c2924; --ink:#f4efe6; --mute:#a39b8d; --gold:#f2b53a; }
   * { box-sizing: border-box; }
@@ -30,6 +35,9 @@
   .links { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; margin-top:12px; }
   .links a { display:block; text-align:center; padding:11px 8px; border-radius:9px; background:#25221d; color:var(--ink); text-decoration:none; font-weight:600; font-size:15px; }
   .links a:hover, .links a:focus { background:#332e26; outline:2px solid var(--gold); outline-offset:-2px; }
+  details { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:0 14px; margin-bottom:10px; }
+  summary { cursor:pointer; font-weight:700; padding:14px 0; }
+  details .links { margin:0 0 14px; }
   footer { margin-top:30px; text-align:center; color:var(--mute); font-size:14px; }
   footer a { color:var(--ink); }
 </style>
@@ -44,7 +52,7 @@
   </header>
   <section id="albums" aria-label="Álbuns"></section>
   <footer>
-    faladixx é o projeto musical do Digo.<br>
+    faladixx é o projeto musical do Digo, feito com apoio de IA.<br>
     <a href="https://www.instagram.com/faladigo/">@faladigo</a> — publicidade, direito e música ·
     <a href="https://www.instagram.com/galeriafaladigo/">@galeriafaladigo</a> — fotografia
   </footer>
@@ -95,6 +103,126 @@ const ALBUNS = [
              Deezer: 'https://www.deezer.com/album/828508121',
              'Vídeos': 'https://www.youtube.com/playlist?list=PL2grQe4FybApICXH8JVDVdp33HFjZ3-pj' } },
 ];
+// Links diretos de faixa (Spotify), não dependem do perfil do artista.
+const MOMENTOS = [
+ [
+  "Hinos em versão trap",
+  [
+   [
+    "Um bom amigo",
+    "https://open.spotify.com/track/3Gtda0NEEXsdQgHlQDrVRB"
+   ],
+   [
+    "Cordeiro",
+    "https://open.spotify.com/track/2ViPXRbyiF1tsqthl0Rr2n"
+   ],
+   [
+    "Navegar com fé",
+    "https://open.spotify.com/track/1vrI5c4L4IiQ4jIRNcU7No"
+   ],
+   [
+    "Chuvas de Graça",
+    "https://open.spotify.com/track/13ZneY9TtwJgqjfiyVAK70"
+   ],
+   [
+    "Soldados Somos",
+    "https://open.spotify.com/track/5R7D35HyFOkTZwyKiMtZim"
+   ],
+   [
+    "Firme",
+    "https://open.spotify.com/track/5NuV5iP3qnC1wb2f3SRTb5"
+   ]
+  ]
+ ],
+ [
+  "Oração e recomeço",
+  [
+   [
+    "Volta ao Jardim",
+    "https://open.spotify.com/track/0w2PcDcCdBP2SraFJyAZxT"
+   ],
+   [
+    "Primeiro amor",
+    "https://open.spotify.com/track/74Jt7vRuf26V3vYaIeKBvA"
+   ],
+   [
+    "Coração Aberto",
+    "https://open.spotify.com/track/3HDzJNq1hulmSy9RKmuYqq"
+   ],
+   [
+    "Meu Deus",
+    "https://open.spotify.com/track/3QjTc38E0V8hPvip0WDGqY"
+   ]
+  ]
+ ],
+ [
+  "Força para o dia",
+  [
+   [
+    "Refúgio 91",
+    "https://open.spotify.com/track/5DEsqRbaCxulndNz96bcn7"
+   ],
+   [
+    "RM 8",
+    "https://open.spotify.com/track/4S7IzOiUwinA9mzWoUBBG4"
+   ],
+   [
+    "Sombra do Onipotente",
+    "https://open.spotify.com/track/0aMMlxb8c2z4mQgLM08hyv"
+   ],
+   [
+    "Teu Nome Tem Poder",
+    "https://open.spotify.com/track/6eTTeULk26IA99Bi8UYQH4"
+   ]
+  ]
+ ],
+ [
+  "Histórias da Bíblia",
+  [
+   [
+    "5 Amigos",
+    "https://open.spotify.com/track/4c2Qxs2ccdH1bp7L5oHfrW"
+   ],
+   [
+    "LC 7.11-17",
+    "https://open.spotify.com/track/0UtDtEuBEJXrBHmKntFMwH"
+   ],
+   [
+    "Moisés",
+    "https://open.spotify.com/track/0gslGvMJfOb0F9SNEZgKhL"
+   ],
+   [
+    "Vem Com Josué",
+    "https://open.spotify.com/track/69S6QWeEBq126GtcVbtwL7"
+   ],
+   [
+    "Persistência",
+    "https://open.spotify.com/track/0dDqFAXoR6FU1Or50OkYNM"
+   ]
+  ]
+ ],
+ [
+  "Para cantar com as crianças",
+  [
+   [
+    "Ping",
+    "https://open.spotify.com/track/3qIL0a6I0tHTnpCAiBYKFO"
+   ],
+   [
+    "Cordeirinho",
+    "https://open.spotify.com/track/4ZfeM6vE2yEMDs0wyCednX"
+   ],
+   [
+    "Pedro, Tiago e João",
+    "https://open.spotify.com/track/7cwIdbjFpj0Kg784rT8Fqy"
+   ],
+   [
+    "Caminhando Eu Vou",
+    "https://open.spotify.com/track/6tVe3vG54TGiaEq30J8R4I"
+   ]
+  ]
+ ]
+];
 /* ===== fim dos dados ===== */
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -120,6 +248,7 @@ const atual = ALBUNS.filter((a) => a.nome === TEMPORADA_ATUAL);
 const resto = ALBUNS.filter((a) => a.nome !== TEMPORADA_ATUAL);
 document.getElementById('albums').innerHTML =
   (atual.length ? '<h2>Agora</h2>' + atual.map(albumHtml).join('') : '') +
+  '<h2>Ouça por momento</h2>' + MOMENTOS.map(([n, f]) => `<details><summary>${esc(n)}</summary><div class="links">${f.map(([t, u]) => link(t, u)).join('')}</div></details>`).join('') +
   '<h2>Discografia</h2>' + resto.map(albumHtml).join('');
 </script>
 </body>
