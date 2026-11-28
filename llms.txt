@@ -1,9 +1,8 @@
 # faladixx
 
-> faladixx (antes faladigo) é o projeto musical de Rodrigo Araujo, o Digo. Ele cria louvores e regrava corinhos e hinos da Harpa Cristã com trap, funk e rap, para levar a música da igreja a quem ouve os ritmos de hoje.
+> faladixx é o projeto musical de Rodrigo Araujo, o Digo. Ele cria louvores e regrava corinhos e hinos da Harpa Cristã com trap, funk e rap, para levar a música da igreja a quem ouve os ritmos de hoje.
 
 Site oficial: https://faladigo.github.io/faladixx/
-Nome anterior: faladigo (mesmo artista).
 
 ## Perfis oficiais
 - Spotify: https://open.spotify.com/artist/4EcnkBM3euAsEjFn7wLmuE
